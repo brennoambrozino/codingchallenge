@@ -5,7 +5,8 @@ import { app } from "./controller/app"
 import MembershipController from "./controller/MemberShipController"
 import OrganizationController from "./controller/OrganizationController"
 import UserController from "./controller/UserController"
-import MembershipData from "./data/MemberShipData"
+import MembershipData from "./data/MembershipData"
+
 import OrganizationData from "./data/OrganizationData"
 import UserData from "./data/UserData"
 import { IdGenerator } from "./services/IdGenerator"
@@ -50,4 +51,5 @@ const membershipController = new MembershipController(
     membershipBusiness
 )
 
+app.get("/membership/:organization", membershipController.getByOrganization)
 app.post("/membership/register", membershipController.register)

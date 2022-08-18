@@ -28,4 +28,21 @@ export default class MembershipController {
         }
 
     }
+
+    getByOrganization = async(req:Request, res:Response) => {
+
+        const { organization } = req.params
+
+        const queryResult:any = await this.membershipBusiness.getByOrganization(organization)
+
+        try {
+            res.status(200).send(queryResult)    
+        } catch (error) {
+            if (error instanceof Error) {
+                return res.status(400).send(error.message)
+            }
+            res.status(500).send(`Erro ao Requisitar os Membros dessa Organização`)
+        }
+
+    }
 }

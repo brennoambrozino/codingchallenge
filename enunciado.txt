@@ -54,7 +54,7 @@ X Deve ser capaz de retornar uma lista de todos os usuários
 
 X Deve ser capaz de retornar um único usuário com um ID especificado
 
-● Deve ser capaz de registrar um usuário como membro de um determinado
+X Deve ser capaz de registrar um usuário como membro de um determinado
 
 Organização
 

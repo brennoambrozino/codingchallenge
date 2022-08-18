@@ -1,4 +1,5 @@
-import MembershipData from "../data/MemberShipData"
+
+import MembershipData from "../data/MembershipData"
 import OrganizationData from "../data/OrganizationData"
 import UserData from "../data/UserData"
 import Membership from "../model/Membership"
@@ -51,5 +52,27 @@ export default class MembershipBusiness{
         
         await this.membershipData.insert(membership)
 
+    }
+
+    getByOrganization = async(organization:string) => {
+        const organizationQueryResult = await this.organizationData.findByName(organization.toUpperCase())
+        const organization_id = organizationQueryResult.id
+
+        const membershipQueryResult = await this.membershipData.findByOrganizationId(organization_id)
+
+        let members = []
+
+        for(let membership of membershipQueryResult) {
+            const userQueryResult = await this.userData.findById(membership.user_id)
+
+            const member = {
+                name: userQueryResult.name,
+                role: membership.role
+            }
+
+            members.push(member)
+        }
+
+        return members
     }
 }

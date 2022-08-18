@@ -21,8 +21,8 @@ POST http://localhost:3003/user/register
 Content-Type: application/json
 
 {
-    "name": "brenno",
-    "email": "brennoambrozino@gmail.com" 
+    "name": "karina",
+    "email": "karina@gmail.com" 
 }
 
 ###
@@ -37,12 +37,18 @@ Content-Type: application/json
 
 ###
 
+GET http://localhost:3003/membership/puma
+Content-Type: application/json
+
+###
+
 POST http://localhost:3003/membership/register
 Content-Type: application/json
 
 {
-    "email": "brennoambrozino@gmail.com",
+    "email": "karina@gmail.com",
     "organization": "puma",
-    "role": "marketing" 
+    "role": "RH" 
 }
+
 
