@@ -44,6 +44,23 @@ export default class OrganizationController {
 
     }
 
+    getAllByPage = async(req:Request, res:Response) => {
+
+        const { page } = req.params
+
+        const queryResult:SelectAllResponse = await this.organizationBusiness.getAllByPage(page)
+
+        try {
+            res.status(200).send(queryResult)    
+        } catch (error) {
+            if (error instanceof Error) {
+                return res.status(400).send(error.message)
+            }
+            res.status(500).send(`Erro ao Requisitar as Organizações`)
+        }
+
+    }
+
     getById = async(req:Request, res:Response) => {
 
         const { id } = req.params

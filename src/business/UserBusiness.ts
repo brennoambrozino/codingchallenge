@@ -48,6 +48,25 @@ export default class UserBusiness{
         return users
     }
 
+    getAllByPage = async(page:string) => {
+
+        let users = []
+
+        if(Number(page) < 1) {
+            users = await this.userData.selectAllByPage(1)
+        } else {
+            users = await this.userData.selectAllByPage(Number(page))
+        }
+
+
+        if(!users) {
+            throw new Error("Erro ao encontrar os Usuários")
+        }
+
+        return users
+
+    }
+
     getById = async(id:string) => {
         const user = await this.userData.findById(id)
 

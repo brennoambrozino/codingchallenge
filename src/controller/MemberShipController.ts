@@ -29,11 +29,17 @@ export default class MembershipController {
 
     }
 
-    getByOrganization = async(req:Request, res:Response) => {
+    getByOrganizationPage = async(req:Request, res:Response) => {
 
         const { organization } = req.params
 
-        const queryResult:any = await this.membershipBusiness.getByOrganization(organization)
+        let { page }:any = req.query
+
+        if(!page) {
+            page = "1"
+        }
+
+        const queryResult:any = await this.membershipBusiness.getByOrganizationPage(organization, page)
 
         try {
             res.status(200).send(queryResult)    

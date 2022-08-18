@@ -54,11 +54,11 @@ export default class MembershipBusiness{
 
     }
 
-    getByOrganization = async(organization:string) => {
+    getByOrganizationPage = async(organization:string, page:string) => {
         const organizationQueryResult = await this.organizationData.findByName(organization.toUpperCase())
         const organization_id = organizationQueryResult.id
 
-        const membershipQueryResult = await this.membershipData.findByOrganizationId(organization_id)
+        const membershipQueryResult = await this.membershipData.findByOrganizationIdPage(organization_id, Number(page))
 
         let members = []
 

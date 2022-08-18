@@ -22,7 +22,8 @@ const organizationController = new OrganizationController(
 )
 
 app.post("/organization/register", organizationController.register)
-app.get("/organization/list", organizationController.getAll) 
+app.get("/organization/list", organizationController.getAll)
+app.get("/organization/list/:page", organizationController.getAllByPage) 
 app.get("/organization/:id", organizationController.getById)
 
 const userBusiness = new UserBusiness(
@@ -37,6 +38,7 @@ const userController = new UserController(
 
 app.post("/user/register", userController.register)
 app.get("/user/list", userController.getAll)
+app.get("/user/list/:page", userController.getAllByPage)
 app.get("/user/:id", userController.getById)
 
 const membershipBusiness = new MembershipBusiness(
@@ -51,5 +53,5 @@ const membershipController = new MembershipController(
     membershipBusiness
 )
 
-app.get("/membership/:organization", membershipController.getByOrganization)
+app.get("/membership/list/:organization", membershipController.getByOrganizationPage)
 app.post("/membership/register", membershipController.register)

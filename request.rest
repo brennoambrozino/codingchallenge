@@ -2,12 +2,17 @@ POST http://localhost:3003/organization/register
 Content-Type: application/json
 
 {
-    "name": "puma" 
+    "name": "kajoma" 
 }
 
 ###
 
 GET http://localhost:3003/organization/list 
+Content-Type: application/json
+
+###
+
+GET http://localhost:3003/organization/list/2 
 Content-Type: application/json
 
 ###
@@ -21,8 +26,8 @@ POST http://localhost:3003/user/register
 Content-Type: application/json
 
 {
-    "name": "karina",
-    "email": "karina@gmail.com" 
+    "name": "marvin",
+    "email": "marvin@gmail.com" 
 }
 
 ###
@@ -32,12 +37,17 @@ Content-Type: application/json
 
 ###
 
+GET http://localhost:3003/user/list/2 
+Content-Type: application/json
+
+###
+
 GET http://localhost:3003/user/f0170114-e5e6-4364-b1d7-9843844fa0d8
 Content-Type: application/json
 
 ###
 
-GET http://localhost:3003/membership/puma
+GET http://localhost:3003/membership/list/puma?page=2
 Content-Type: application/json
 
 ###
@@ -46,9 +56,9 @@ POST http://localhost:3003/membership/register
 Content-Type: application/json
 
 {
-    "email": "karina@gmail.com",
+    "email": "marvin@gmail.com",
     "organization": "puma",
-    "role": "RH" 
+    "role": "marketing" 
 }
 
 

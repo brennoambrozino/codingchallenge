@@ -50,6 +50,24 @@ export default class UserData extends BaseDataBase{
         }
     }
 
+    selectAllByPage = async(page:number) => {
+        try {
+            const queryResult:any = await this
+                .connection(this.TABLE_NAME)
+                .select()
+                .orderBy("name")
+                .limit(10)
+                .offset(10 * (page - 1))
+            return queryResult
+        } catch (error) {
+            if (error instanceof Error) {
+                throw new Error(error.message)
+            } else {
+                throw new Error("Error do banco !")
+            }
+        }
+    }
+
     findById = async(id:string) => {
         try {
             const queryResult:any= await this

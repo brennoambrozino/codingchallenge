@@ -40,6 +40,25 @@ export default class OrganizationBusiness{
         return organizations
     }
 
+    getAllByPage = async(page:string) => {
+
+        let organizations = []
+
+        if(Number(page) < 1) {
+            organizations = await this.organizationData.selectAllByPage(1)
+        } else {
+            organizations = await this.organizationData.selectAllByPage(Number(page))
+        }
+
+
+        if(!organizations) {
+            throw new Error("Erro ao encontrar as organizações")
+        }
+
+        return organizations
+
+    }
+
     getById = async(id:string) => {
         const organization = await this.organizationData.findById(id)
 

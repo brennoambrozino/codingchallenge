@@ -58,7 +58,7 @@ X Deve ser capaz de registrar um usuário como membro de um determinado
 
 Organização
 
-● Deve ser capaz de retornar uma lista de membros de um determinado
+X Deve ser capaz de retornar uma lista de membros de um determinado
 
 Organização
 
@@ -76,7 +76,7 @@ Bônus
 
 Você pode mostrar sua habilidade com essas conquistas extras se quiser:
 
-● Use um design de tabela única no DynamoDB
+X Use um design de tabela única no DynamoDB
 
 ● Use paginação para resultados de lista
 

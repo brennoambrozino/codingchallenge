@@ -17,13 +17,15 @@ export default class MembershipData extends BaseDataBase{
             }
         }
     }
-
-    findByOrganizationId = async(organization_id:string) => {
+    
+    findByOrganizationIdPage = async(organization_id:string, page:number) => {
         try {
             const queryResult:any= await this
                 .connection(this.TABLE_NAME)
                 .select()
                 .where({organization_id})
+                .limit(10)
+                .offset(10 * (page - 1))
             return queryResult
         } catch (error) {
             if (error instanceof Error) {
