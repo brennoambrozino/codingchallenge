@@ -1,0 +1,48 @@
+POST http://localhost:3003/organization/register 
+Content-Type: application/json
+
+{
+    "name": "puma" 
+}
+
+###
+
+GET http://localhost:3003/organization/list 
+Content-Type: application/json
+
+###
+
+GET http://localhost:3003/organization/97593fe3-8b6c-4657-962c-af7da1c9d50d
+Content-Type: application/json
+
+###
+
+POST http://localhost:3003/user/register 
+Content-Type: application/json
+
+{
+    "name": "brenno",
+    "email": "brennoambrozino@gmail.com" 
+}
+
+###
+
+GET http://localhost:3003/user/list 
+Content-Type: application/json
+
+###
+
+GET http://localhost:3003/user/f0170114-e5e6-4364-b1d7-9843844fa0d8
+Content-Type: application/json
+
+###
+
+POST http://localhost:3003/membership/register
+Content-Type: application/json
+
+{
+    "email": "brennoambrozino@gmail.com",
+    "organization": "puma",
+    "role": "marketing" 
+}
+
